@@ -1,0 +1,275 @@
+:root {
+  color-scheme: light;
+  --ink: #163235;
+  --muted: #5f7370;
+  --teal: #087b83;
+  --teal-dark: #055c63;
+  --mint: #dff5ea;
+  --coral: #d56b53;
+  --gold: #e5b85b;
+  --paper: #fbfdfb;
+  --line: #d9e7e4;
+  --shadow: 0 18px 50px rgba(20, 47, 49, 0.14);
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+}
+
+a {
+  color: inherit;
+}
+
+.site-shell {
+  min-height: 100vh;
+}
+
+.hero {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+  display: grid;
+  grid-template-rows: auto 1fr;
+  isolation: isolate;
+}
+
+.hero__image,
+.hero__shade {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.hero__image {
+  object-fit: cover;
+  object-position: center;
+  z-index: -3;
+}
+
+.hero__shade {
+  z-index: -2;
+  background:
+    linear-gradient(90deg, rgba(251, 253, 251, 0.98) 0%, rgba(251, 253, 251, 0.9) 30%, rgba(251, 253, 251, 0.48) 58%, rgba(251, 253, 251, 0.12) 100%),
+    linear-gradient(180deg, rgba(251, 253, 251, 0.82), rgba(251, 253, 251, 0.18) 45%, rgba(251, 253, 251, 0.92));
+}
+
+.topbar {
+  width: min(1120px, calc(100% - 40px));
+  margin: 0 auto;
+  padding: 16px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+}
+
+.brand__mark {
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  display: grid;
+  place-items: center;
+  color: var(--teal);
+  background: #fff;
+  box-shadow: var(--shadow);
+}
+
+.brand__mark svg {
+  width: 26px;
+  height: 26px;
+}
+
+.brand strong,
+.brand small {
+  display: block;
+}
+
+.brand strong {
+  font-size: 0.9rem;
+  line-height: 1.1;
+}
+
+.brand small {
+  color: var(--muted);
+  font-weight: 700;
+  letter-spacing: 0;
+  text-transform: uppercase;
+  font-size: 0.62rem;
+}
+
+.topbar__link {
+  text-decoration: none;
+  font-weight: 800;
+  padding: 9px 13px;
+  font-size: 0.86rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid rgba(255, 255, 255, 0.86);
+  box-shadow: 0 10px 30px rgba(20, 47, 49, 0.1);
+}
+
+.eyebrow {
+  margin: 0 0 10px;
+  color: var(--coral);
+  font-size: 0.68rem;
+  font-weight: 900;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+h1,
+p {
+  overflow-wrap: break-word;
+}
+
+h1 {
+  margin: 0;
+  font-size: clamp(1.35rem, 3vw, 2.2rem);
+  line-height: 1.08;
+  letter-spacing: 0;
+}
+
+.notice p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.92rem;
+  line-height: 1.5;
+}
+
+.notice {
+  width: min(760px, calc(100% - 40px));
+  margin: auto;
+  padding: 22px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 22px;
+  align-items: center;
+  background: #143436;
+  color: #fff;
+  border-radius: 8px;
+  align-self: center;
+}
+
+.notice .eyebrow {
+  color: var(--gold);
+}
+
+.notice p {
+  max-width: 600px;
+  color: #c7d9d6;
+  margin-top: 10px;
+}
+
+.signup label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 800;
+  font-size: 0.9rem;
+}
+
+.signup__row {
+  display: flex;
+  gap: 10px;
+}
+
+.signup input,
+.signup button {
+  min-height: 40px;
+  border-radius: 8px;
+  font: inherit;
+}
+
+.signup input {
+  width: 100%;
+  border: 1px solid rgba(255, 255, 255, 0.24);
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  padding: 0 12px;
+}
+
+.signup input::placeholder {
+  color: rgba(255, 255, 255, 0.68);
+}
+
+.signup button {
+  flex: 0 0 auto;
+  border: 0;
+  background: var(--gold);
+  color: #1e2d2c;
+  padding: 0 14px;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+@media (max-width: 820px) {
+  .hero {
+    min-height: 100svh;
+  }
+
+  .hero__image {
+    object-position: 63% center;
+  }
+
+  .hero__shade {
+    background:
+      linear-gradient(180deg, rgba(251, 253, 251, 0.97) 0%, rgba(251, 253, 251, 0.92) 42%, rgba(251, 253, 251, 0.54) 100%),
+      linear-gradient(90deg, rgba(251, 253, 251, 0.98), rgba(251, 253, 251, 0.38));
+  }
+
+  .topbar,
+  .notice {
+    width: min(100% - 28px, 760px);
+  }
+
+  .topbar {
+    padding-top: 18px;
+  }
+
+  .notice {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 540px) {
+  .topbar {
+    align-items: flex-start;
+  }
+
+  .brand__mark {
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+  }
+
+  .topbar__link {
+    padding: 8px 10px;
+    font-size: 0.82rem;
+  }
+
+  .signup__row {
+    display: grid;
+  }
+
+  .signup button {
+    width: 100%;
+  }
+
+  .notice {
+    padding: 18px;
+  }
+}
